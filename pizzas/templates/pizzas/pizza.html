@@ -13,7 +13,7 @@
 <h5><p>{{ topping.topping_name }}</p></h5>
   
    {% empty %}
-     <p>There are no toppings on this pizza.</p>
+     <p>There are no toppings on this pizza!</p>
    {% endfor %}    
 
 
@@ -23,7 +23,6 @@
    
 
 {% load static %}
-  
     <p>
       <img src="{{ pizza.image.url }}">
     </p>
