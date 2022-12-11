@@ -16,8 +16,10 @@ def pizza(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
 
     toppings = Topping.objects.filter(pizza=pizza)
+    comments = pizza.comment_set.all()
+    images = pizza.image_set.all()
 
-    context = {'pizza':pizza, 'toppings':toppings}
+    context = {'pizza':pizza, 'toppings':toppings, 'comments':comments, 'images':images}
     return render(request, 'pizzas/pizza.html', context)
 
 def new_comment(request, pizza_id):
