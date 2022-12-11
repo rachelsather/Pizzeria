@@ -1,0 +1,62 @@
+{% load bootstrap4 %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"content="width=device-width,initial-scale=1,
+shrink-to-fit=no">
+<title>Pizzeria</title>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'pizzas/site.css' %}" />
+
+{%bootstrap_css%}
+{%bootstrap_javascript jquery='full'%}
+
+</head>
+
+<!--body contains the content users will see on a page-->
+<body>
+
+<!--style rules:-->
+<nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+
+<!--set project's name to appear on the far left of the nav bar and make it a link to the homepage-->
+<a class="navbar-brand" href="{% url 'pizzas:index'%}">
+Rachel's Pizzeria</a>
+    
+<!--open a new section of the navigation bar-->
+<div class="collapse navbar-collapse" id="navbarCollapse">
+
+<!--define a new set of links-->
+ <ul class="navbar-nav mr-auto">
+<!--item in list-->
+  <li class="nav-item">
+ <a class="nav-link" href="{% url 'pizzas:pizzas'%}">
+   Pizzas</a></li>
+</ul>
+ 
+<!--close the navigation bar overall-->
+</nav>
+
+<!--open main tag used for the most significant part of the body of a page-->
+<!--assign container which groups elements on a page-->
+<main role="main" class="container">
+
+<!--first div element contains a page_header block to title most pages-->
+
+ {% block page_header %}{% endblock page_header %}
+   </div>
+
+<!--define div element that contains the content-->
+   <div>
+
+ {% block content %}{% endblock content %}
+ 
+   </div>
+  
+ </main>
+ </body>
+ </html>
+
+    

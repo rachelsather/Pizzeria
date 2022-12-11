@@ -1,0 +1,29 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+
+<p> Pizzas </p>
+
+<div>
+  <body style="background-color:gainsboro;"></body>
+</div>
+
+<ul>
+    {% for pizza in all_pizzas %}
+
+    <li> 
+        <a href="{% url 'pizzas:pizza' pizza.id %}"> {{ pizza }} </a> 
+    </li> 
+
+    {% empty %}
+    <li> No pizzas have been added yet.</li>
+    {% endfor %}
+
+</ul>
+
+<p>
+    {% load static %} <img src="https://source.unsplash.com/1600x700/?pizza" class="img-fluid" alt="Responsive image" />
+</p>
+
+{% endblock content %}
+

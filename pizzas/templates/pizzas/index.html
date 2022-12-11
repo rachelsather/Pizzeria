@@ -1,0 +1,40 @@
+{% extends "pizzas/base.html" %}
+
+{% block page_header %}
+
+<p>
+  {% load static %} <img src="https://source.unsplash.com/1600x475/?pizza" class="img-fluid" alt="Responsive image" />
+</p>
+
+<div class="jumbotron text-center">
+  
+    <h1 class="display-3">{{ Pizza }}</h1>
+    
+  <body style="background-color:gainsboro;"></body>
+
+    <p<h3 class="lead">Try our world-famous pizza at Rachel's Pizzeria! Check
+      out our pizzas and leave comments on your favorites!
+      
+      <br></br>1302 Bagby Ave. Waco, TX</br>
+      (708) 897-1571</br></br>
+    </h3></p>
+
+    <a class="btn btn-danger btn-lg btn-primary text-center" href="{% url 'pizzas:pizzas' %}"
+   role="button">View Pizzas &raquo;</a>
+ </div>
+
+{% endblock page_header %}
+
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pizzeria</title>
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{ </head>
+
