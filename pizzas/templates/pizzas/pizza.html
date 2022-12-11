@@ -1,3 +1,4 @@
+
 {% extends 'pizzas/base.html' %}
 
 {% block page_header %}
@@ -6,43 +7,36 @@
   
   {% block content %}
 
-  <!--header-->
-<h3
-    <p>Toppings</p>
-</h3>
+<h3><p>Toppings</p></h3>
   
-  <!--places the text of the toppings in a simple box on the card-->
-{% for t in toppings %}
-<h5
-     <p>{{ t | linebreaks }}</p>
-</h5>
+{% for topping in toppings %}
+<h5><p>{{ topping.topping_name }}</p></h5>
   
    {% empty %}
      <p>There are no toppings on this pizza.</p>
    {% endfor %}    
 
+
 <h4>
-   <p>
-    <a href="{% url 'pizzas:new_comment' pizza.id %}">Comment</a>
-  </p>
+   <p><a href="{% url 'pizzas:new_comment' pizza.id %}">Comment</a></p>
 </h4>
+   
 
-<h3
-  <p>Comments</p>
-</h3>
-
-  {% for comment in comments %}
-  <!--header-->
-<h5 class="card-header">
-    {{ comment.date_added|date:'M d, Y' }}
-</h5>
+{% load static %}
+{% for img in images %}
   
-  <!--places the text of the toppings in a simple box on the card-->
-  <div class="card-body">
-     {{ comment }}
+    <p>
+      <img src="{{ img.images.url }}" class="img-fluid" alt="Responsive image" width="100%" alt="home"/>
+    </p>
+    
+{% endfor %}
 
-   </div>
-     </div>
+
+<h3><p>Comments</p></h3>
+
+{% for comment in comments %}
+<p>{{ comment.comment_name }}</p>
+
    {% empty %}
      <p>There are no comments on this pizza.</p>
    {% endfor %}
@@ -50,12 +44,5 @@
 <div>
   <body style="background-color:gainsboro;"></body>
 </div>
-
-{% for img in images %}
-    <p>
-        <img src="https://source.unsplash.com/1600x700/?pizza" class="img-fluid" alt="Responsive image" />
-    </p>
-    {% endfor %} 
     
 {% endblock content %}
-
