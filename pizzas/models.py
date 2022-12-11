@@ -4,7 +4,7 @@ from django.db import models
 
 class Pizza(models.Model):
     pizza_name = models.CharField(max_length=200)
-    pizza_image = models.ImageField(upload_to='img',blank=True,null=True)
+    pizza_image = models.ImageField(upload_to='imgages',blank=True,null=True)
 
     def __str__(self):
         return self.pizza_name
@@ -27,7 +27,7 @@ class Comment(models.Model):
 class Image(models.Model):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='images')
+    image = models.ImageField(upload_to='pizzas/media/images/')
 
     def __str__(self):
         return self.title
