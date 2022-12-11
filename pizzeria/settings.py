@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [ 
     'bootstrap4',
     'pizzas',
     'django.contrib.admin',
@@ -123,6 +123,8 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'static')
+
+IMAGEFIT_ROOT = "public"
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
