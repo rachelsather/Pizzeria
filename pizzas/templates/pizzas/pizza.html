@@ -23,6 +23,10 @@
   <img src="{{ pizza.image.url }}">
 </p>
 
+<p>
+  {% load static %} <img src="https://source.unsplash.com/1600x600/?pizza" class="img-fluid" alt="Responsive image" />
+</p>
+
 
 <h4>
   <p><a href="{% url 'pizzas:new_comment' pizza.id %}">Comment</a></p>
