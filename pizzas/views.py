@@ -14,12 +14,11 @@ def pizzas(request):
 
 def pizza(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
-
     toppings = Topping.objects.filter(pizza=pizza)
-    images = pizza.image_set.all()
-    comments = pizza.comment_set.all()
+    pizza_image = Pizza.pizza_image
+    comments = Comment.objects.filter(pizza=pizza)
 
-    context = {'pizza':pizza, 'toppings':toppings, 'images':images, 'comments':comments}
+    context = {'pizza':pizza, 'toppings':toppings, 'image':pizza_image, 'comments':comments}
     return render(request, 'pizzas/pizza.html', context)
 
 def new_comment(request, pizza_id):
@@ -37,3 +36,14 @@ def new_comment(request, pizza_id):
 
     context = {'form':form, 'pizza':pizza}
     return render(request, 'pizzas/new_comment.html', context)
+
+def image_upload(request):
+    if request.method =='POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            img_obj = form.instance
+            return render(request, 'index.html', {'form': form, 'img_obj': img_obj})
+    else:
+        form = ImageForm()
+    return render(request, 'index.html', {'form': form})

@@ -2,44 +2,40 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport"content="width=device-width,initial-scale=1,
+  <meta charset="utf-8">
+  <meta name="viewport"content="width=device-width,initial-scale=1,
 shrink-to-fit=no">
-<title>Pizzeria</title>
+  <title>Pizzeria</title>
+  {%bootstrap_css%}
+  {%bootstrap_javascript jquery='full'%}
 
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'pizzas/site.css' %}" />
-
-{%bootstrap_css%}
-{%bootstrap_javascript jquery='full'%}
 
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+  <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
 
-<a class="navbar-brand" href="{% url 'pizzas:index'%}">
-Rachel's Pizzeria</a>  
+    <a class="navbar-brand" href="{% url 'pizzas:index'%}">
+    Rachel's Pizzeria</a>  
 
-<div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto"> 
+      <li class="nav-item"><a class="nav-link" href="{% url 'pizzas:pizzas'%}">
+      Pizzas</a></li>
+    </ul>
+    
+  </nav>
 
- <ul class="navbar-nav mr-auto">
+  <main role="main" class="container">
 
-  <li class="nav-item">
- <a class="nav-link" href="{% url 'pizzas:pizzas'%}">
-   Pizzas</a></li>
-</ul>
+    {% block page_header %}{% endblock page_header %}
 
-</nav>
+    {% block content %}{% endblock content %}
+  </main>
 
-<main role="main" class="container">
-
- {% block page_header %}{% endblock page_header %}
-
- {% block content %}{% endblock content %}
- 
- </main>
  </body>
  </html>
 

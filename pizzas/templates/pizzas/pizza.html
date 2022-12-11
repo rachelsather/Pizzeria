@@ -2,10 +2,11 @@
 {% extends 'pizzas/base.html' %}
 
 {% block page_header %}
-<h1 class="display-1">{{ pizza }}</h1>
+  <h1 class="display-1">{{ pizza }}</h1>
 {% endblock page_header %}
   
-  {% block content %}
+
+{% block content %}
 
 <h3><p>Toppings</p></h3>
   
@@ -15,18 +16,16 @@
    {% empty %}
      <p>There are no toppings on this pizza!</p>
    {% endfor %}    
-
-
-<h4>
-   <p><a href="{% url 'pizzas:new_comment' pizza.id %}">Comment</a></p>
-</h4>
    
 
-{% load static %}
-    <p>
-      <img src="{{ pizza.image.url }}">
-    </p>
-    
+<p>
+  {% load static %}
+  <img src="{{ pizza.image.url }}">
+</p>
+
+<h4>
+  <p><a href="{% url 'pizzas:new_comment' pizza.id %}">Comment</a></p>
+</h4>
 
 <h3><p>Comments</p></h3>
 
