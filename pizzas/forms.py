@@ -9,8 +9,3 @@ class CommentForm(forms.ModelForm):
         labels = {'comment_name':''}
 
         widgets = {'comment_name': forms.Textarea(attrs={'cols':80})}
-
-class ImageForm(forms.ModelForm):
-    class Meta:
-        model=Image
-        fields = ('title', 'image')

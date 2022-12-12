@@ -2,7 +2,7 @@
 {% extends 'pizzas/base.html' %}
 
 {% block page_header %}
-  <h1 class="display-1">{{ pizza }}</h1>
+  <h1 class="display-4">{{ pizza }}</h1>
 {% endblock page_header %}
   
 
@@ -15,16 +15,14 @@
   
    {% empty %}
      <p>There are no toppings on this pizza!</p>
-   {% endfor %}    
+{% endfor %}    
    
 
-<p>
-  {% load static %} <img src="{{ pizza.image.url }}">
-</p>
-
-<p>
-  <img src="{{baseUrl}}/{{pizza.pizza_image}}"> 
-</p>
+{% for image in images %}
+    <p>
+      {% load static %} <img src="{{ image.image.url }}" class="img-fluid" alt="Responsive image" width="100%" alt="home"/>
+    </p>
+{% endfor %}
 
 <p>
   {% load static %} <img src="https://source.unsplash.com/1600x600/?pizza" class="img-fluid" alt="Responsive image" />
@@ -42,7 +40,7 @@
 
    {% empty %}
      <p>There are no comments on this pizza.</p>
-   {% endfor %}
+{% endfor %}
 
 <div>
   <body style="background-color:gainsboro;"></body>

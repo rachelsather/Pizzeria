@@ -36,14 +36,3 @@ def new_comment(request, pizza_id):
 
     context = {'form':form, 'pizza':pizza}
     return render(request, 'pizzas/new_comment.html', context)
-
-def image_upload(request):
-    if request.method =='POST':
-        form = ImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            img_obj = form.instance
-            return render(request, 'index.html', {'form': form, 'img_obj': img_obj})
-    else:
-        form = ImageForm()
-    return render(request, 'index.html', {'form': form})
