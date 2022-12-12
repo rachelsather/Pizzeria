@@ -19,8 +19,11 @@
    
 
 <p>
-  {% load static %}
-  <img src="{{ pizza.image.url }}">
+  {% load static %} <img src="{{ pizza.image.url }}">
+</p>
+
+<p>
+  <img src="{{baseUrl}}/{{pizza.pizza_image}}"> 
 </p>
 
 <p>
